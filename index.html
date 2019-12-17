@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="EU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css" type="text/css">
+    <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+    <link rel="stylesheet" href="dist/style.css">
+    <title>Weather</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="navbar">
+            <div class="functional_btn">
+                <input type="button" value="Refresh" class="refresh" id="refreshBtn">
+                <select id="languages">
+                    <option value="english">EU</option>
+                    <option value="russian">RU</option>
+                </select>
+                <button class="fahrenheit" id="fahrenheit">F&deg;</button>
+                <button class="celsius active" id="celsius">C&deg;</button>
+            </div>
+            <div class="search_town">
+                <div id="geocoder" class="geocoder"></div>
+            </div>
+        </nav>
+        <section class="weather">
+            <div class="town_date_time">
+                <h3 class="town__item" id="country">ufa, russian</h3>
+                <p class="date_time__item" id="dateTime"></p>
+            </div>
+            <div class="weather_today">
+                <div class="weather_today__degrees">
+                    <img src="" alt="weather" id="weatherLogo">
+                    <p class="degrees_today" id="degreesTo">-10&deg;</p>  
+                </div>
+                <div class="weather_today__description">
+                    <p class="condition" id="condition">overcast</p>
+                    <p class="feeling" id="feelsLike">feels like: -14&deg;</p>
+                    <p class="wind" id="wind">wind: 2 m/s</p>
+                    <p class="humidity" id="humidity">humidity: 83%</p>
+                </div>
+            </div>
+            <div class="weather_next_days">
+                <div class="weather_day">
+                    <p class="day" id="dayone">Friday</p>
+                    <span class="degrees" id="degOne">-8&deg;</span>
+                    <img src="#" alt="weather" id="logoOneDay">
+                </div>
+                <div class="weather_day">
+                    <p class="day" id="daytwo">Saturday</p>
+                    <span class="degrees" id="degTwo">-2&deg;</span>
+                    <img src="#" alt="weather" id="logoTwoDay">
+                </div>
+                <div class="weather_day">
+                    <p class="day" id="daythree">Sunday</p>
+                    <span class="degrees" id="degThree">-4&deg;</span>
+                    <img src="#" alt="weather" id="logoThreeDay">
+                </div>
+            </div>
+        </section>
+        <section class="map_location" id="location">
+            <div id="map"></div>
+            <div class="position">
+                <p id="longitude"></p>
+                <p id="latitude"></p>
+            </div> 
+        </section>
+    </div>
+    <script src="./dist/bundle.js"></script>
+</body>
+</html>
